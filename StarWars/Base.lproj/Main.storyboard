@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,149 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StarWars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9s6-R4-PTq">
+                                <rect key="frame" x="16" y="36" width="343" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="rtU-oz-qnx"/>
+                                </constraints>
+                            </imageView>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kuQ-qe-0bb">
+                                <rect key="frame" x="16" y="180" width="343" height="471"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HZZ-gq-IhH">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9s6-R4-PTq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="1i1-bL-hp1"/>
+                            <constraint firstItem="kuQ-qe-0bb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="59b-z7-r35"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9s6-R4-PTq" secondAttribute="trailing" constant="16" id="LEV-iY-MNg"/>
+                            <constraint firstItem="kuQ-qe-0bb" firstAttribute="top" secondItem="9s6-R4-PTq" secondAttribute="bottom" constant="16" id="O7r-lE-5Oq"/>
+                            <constraint firstItem="9s6-R4-PTq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OJr-ON-0tn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kuQ-qe-0bb" secondAttribute="trailing" constant="16" id="Y7x-p8-zqs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kuQ-qe-0bb" secondAttribute="bottom" constant="16" id="kIj-Z2-CiC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="pEY-Lp-xCc" kind="show" identifier="planetSegue" id="iez-8o-SJr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YZD-Pc-ObI">
+            <objects>
+                <viewController id="pEY-Lp-xCc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ny-lm-Wut">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CP4-2O-rG4">
+                                <rect key="frame" x="16" y="36" width="343" height="64"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GON-HT-R7w">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="l3n-Ip-GpW"/>
+                                            <constraint firstAttribute="width" constant="64" id="xd1-cn-KEN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-xd-o80">
+                                        <rect key="frame" x="80" y="16.5" width="263" height="31.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9R1-cM-gbm">
+                                <rect key="frame" x="16" y="116" width="343" height="535"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ziy-G3-WDv">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ef9-aB-wEr" firstAttribute="bottom" secondItem="9R1-cM-gbm" secondAttribute="bottom" constant="16" id="2E3-gv-DCo"/>
+                            <constraint firstItem="Ef9-aB-wEr" firstAttribute="trailing" secondItem="9R1-cM-gbm" secondAttribute="trailing" constant="16" id="69f-WQ-Eva"/>
+                            <constraint firstItem="CP4-2O-rG4" firstAttribute="top" secondItem="Ef9-aB-wEr" secondAttribute="top" constant="16" id="KUk-FL-A8e"/>
+                            <constraint firstItem="9R1-cM-gbm" firstAttribute="leading" secondItem="0Ny-lm-Wut" secondAttribute="leading" constant="16" id="dYv-FK-XpR"/>
+                            <constraint firstItem="9R1-cM-gbm" firstAttribute="top" secondItem="CP4-2O-rG4" secondAttribute="bottom" constant="16" id="gSh-O2-iX8"/>
+                            <constraint firstItem="Ef9-aB-wEr" firstAttribute="trailing" secondItem="CP4-2O-rG4" secondAttribute="trailing" constant="16" id="gfv-rg-s7y"/>
+                            <constraint firstItem="CP4-2O-rG4" firstAttribute="leading" secondItem="Ef9-aB-wEr" secondAttribute="leading" constant="16" id="xRx-fx-g1U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ef9-aB-wEr"/>
+                    </view>
+                    <connections>
+                        <segue destination="EM3-oN-GM2" kind="show" identifier="popSegue" id="4xW-SF-eB2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Md8-nG-sDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2eI-wR-qkq">
+            <objects>
+                <viewController id="EM3-oN-GM2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rfH-DB-wRv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-hQ-4AT">
+                                <rect key="frame" x="16" y="36" width="343" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Obb-Xk-bld"/>
+                                </constraints>
+                            </imageView>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6m8-Uv-eDq">
+                                <rect key="frame" x="16" y="180" width="343" height="471"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Uo-CM-kfl">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dfr-hQ-4AT" firstAttribute="top" secondItem="RGS-Hm-Vb2" secondAttribute="top" constant="16" id="3k1-rB-UAt"/>
+                            <constraint firstItem="6m8-Uv-eDq" firstAttribute="leading" secondItem="RGS-Hm-Vb2" secondAttribute="leading" constant="16" id="5cc-78-yzN"/>
+                            <constraint firstItem="RGS-Hm-Vb2" firstAttribute="trailing" secondItem="6m8-Uv-eDq" secondAttribute="trailing" constant="16" id="7Bb-lU-c1B"/>
+                            <constraint firstItem="Dfr-hQ-4AT" firstAttribute="leading" secondItem="RGS-Hm-Vb2" secondAttribute="leading" constant="16" id="C43-84-iii"/>
+                            <constraint firstItem="RGS-Hm-Vb2" firstAttribute="bottom" secondItem="6m8-Uv-eDq" secondAttribute="bottom" constant="16" id="QYc-8g-J6V"/>
+                            <constraint firstItem="RGS-Hm-Vb2" firstAttribute="trailing" secondItem="Dfr-hQ-4AT" secondAttribute="trailing" constant="16" id="g4K-6Z-Rhx"/>
+                            <constraint firstItem="6m8-Uv-eDq" firstAttribute="top" secondItem="Dfr-hQ-4AT" secondAttribute="bottom" constant="16" id="sNm-Oa-5Fz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RGS-Hm-Vb2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IP3-br-0e9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="134"/>
         </scene>
     </scenes>
 </document>
