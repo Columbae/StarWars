@@ -8,8 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PlanetViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            // TODO :: register all of the cells needed in the collectionView
+//            collectionView.register(TextCollectionViewCell.self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
