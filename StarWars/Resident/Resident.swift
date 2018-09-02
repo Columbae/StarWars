@@ -65,8 +65,8 @@ class Resident {
         self.homeworld = nil
         self.image = nil
         
-        self.itemNames = ["Name", "Height", "Mass", "Hair Color", "Skin Color", "Eye Color", "Birth Year", "Gender"]
-        self.items = [name, height, mass, hairColor, skinColor, eyeColor, birthYear, gender]
+        self.itemNames = ["Height", "Mass", "Hair Color", "Skin Color", "Eye Color", "Birth Year", "Gender"]
+        self.items = [height, mass, hairColor, skinColor, eyeColor, birthYear, gender]
     }
 }
 

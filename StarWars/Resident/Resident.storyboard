@@ -18,14 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-bN-6xv">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-bN-6xv">
                                 <rect key="frame" x="16" y="36" width="343" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Ggl-D3-ijk"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="89q-dD-njF" appends="YES" id="KYa-ah-yyK"/>
+                                </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBA-s4-GMs">
+                                <rect key="frame" x="16" y="180" width="343" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cjT-tm-Iee">
-                                <rect key="frame" x="16" y="180" width="343" height="471"/>
+                                <rect key="frame" x="16" y="219.5" width="343" height="431.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InfoTableViewCell" id="qcJ-pS-lMH" customClass="InfoTableViewCell" customModule="StarWars" customModuleProvider="target">
@@ -91,11 +100,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hBA-s4-GMs" firstAttribute="leading" secondItem="ksT-UB-Jr6" secondAttribute="leading" constant="16" id="2ee-iQ-xFB"/>
+                            <constraint firstItem="ksT-UB-Jr6" firstAttribute="trailing" secondItem="hBA-s4-GMs" secondAttribute="trailing" constant="16" id="3Ix-vZ-OQa"/>
                             <constraint firstItem="Sa0-bN-6xv" firstAttribute="top" secondItem="ksT-UB-Jr6" secondAttribute="top" constant="16" id="IqG-ei-CxB"/>
                             <constraint firstItem="cjT-tm-Iee" firstAttribute="leading" secondItem="ksT-UB-Jr6" secondAttribute="leading" constant="16" id="R3c-OF-6mC"/>
                             <constraint firstItem="ksT-UB-Jr6" firstAttribute="trailing" secondItem="cjT-tm-Iee" secondAttribute="trailing" constant="16" id="VXY-qd-ULe"/>
                             <constraint firstAttribute="bottom" secondItem="cjT-tm-Iee" secondAttribute="bottom" constant="16" id="gGH-y1-kEq"/>
-                            <constraint firstItem="cjT-tm-Iee" firstAttribute="top" secondItem="Sa0-bN-6xv" secondAttribute="bottom" constant="16" id="hx4-f6-k1G"/>
+                            <constraint firstItem="cjT-tm-Iee" firstAttribute="top" secondItem="hBA-s4-GMs" secondAttribute="bottom" constant="8" id="gUd-N0-JVG"/>
+                            <constraint firstItem="hBA-s4-GMs" firstAttribute="top" secondItem="Sa0-bN-6xv" secondAttribute="bottom" constant="16" id="spe-wj-YcF"/>
                             <constraint firstItem="ksT-UB-Jr6" firstAttribute="trailing" secondItem="Sa0-bN-6xv" secondAttribute="trailing" constant="16" id="vUc-jR-Lu9"/>
                             <constraint firstItem="Sa0-bN-6xv" firstAttribute="leading" secondItem="ksT-UB-Jr6" secondAttribute="leading" constant="16" id="x39-EP-pqK"/>
                         </constraints>
@@ -103,12 +115,19 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="Sa0-bN-6xv" id="bmU-7b-oJP"/>
+                        <outlet property="imageViewHeightConstraint" destination="Ggl-D3-ijk" id="wNK-Vn-ay0"/>
+                        <outlet property="nameLabel" destination="hBA-s4-GMs" id="GJx-SC-F3H"/>
                         <outlet property="tableView" destination="cjT-tm-Iee" id="GHj-ZW-6Ct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVN-Nz-aWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="89q-dD-njF">
+                    <connections>
+                        <action selector="imageTapped:" destination="2iB-kv-euE" id="0Gf-Uf-HlG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="294" y="3"/>
+            <point key="canvasLocation" x="293.60000000000002" y="2.2488755622188905"/>
         </scene>
     </scenes>
 </document>

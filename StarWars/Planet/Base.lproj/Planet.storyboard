@@ -28,7 +28,7 @@
                                 </connections>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BVL-cp-moJ">
-                                <rect key="frame" x="16" y="268" width="343" height="383"/>
+                                <rect key="frame" x="16" y="263.5" width="343" height="387.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InfoTableViewCell" id="K2J-rs-3hJ" customClass="InfoTableViewCell" customModule="StarWars" customModuleProvider="target">
@@ -91,36 +91,49 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hSk-aI-JVn"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-DP-6V0">
-                                <rect key="frame" x="164.5" y="216" width="46" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbu-fY-lkl">
+                                <rect key="frame" x="16" y="216" width="279" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFY-6e-2uY">
+                                <rect key="frame" x="311" y="216" width="48" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="qwL-5a-InL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <state key="normal" title="Like"/>
                                 <state key="disabled">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="likeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tkC-TK-I0l"/>
+                                    <action selector="likeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SiM-qn-08d"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9s6-R4-PTq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="1i1-bL-hp1"/>
-                            <constraint firstItem="BVL-cp-moJ" firstAttribute="top" secondItem="FXi-DP-6V0" secondAttribute="bottom" constant="8" id="4CK-jH-lSn"/>
-                            <constraint firstItem="FXi-DP-6V0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GsD-9C-Gs9"/>
+                            <constraint firstItem="HFY-6e-2uY" firstAttribute="leading" secondItem="Wbu-fY-lkl" secondAttribute="trailing" constant="16" id="BIp-7Q-gPK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BVL-cp-moJ" secondAttribute="bottom" constant="16" id="J0y-65-9Xh"/>
+                            <constraint firstItem="Wbu-fY-lkl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KkD-kA-4zQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9s6-R4-PTq" secondAttribute="trailing" constant="16" id="LEV-iY-MNg"/>
                             <constraint firstItem="9s6-R4-PTq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OJr-ON-0tn"/>
+                            <constraint firstItem="HFY-6e-2uY" firstAttribute="top" secondItem="9s6-R4-PTq" secondAttribute="bottom" constant="8" id="SHZ-BJ-1tC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BVL-cp-moJ" secondAttribute="trailing" constant="16" id="UJM-Wh-8gE"/>
                             <constraint firstItem="BVL-cp-moJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cPb-LO-uPW"/>
-                            <constraint firstItem="FXi-DP-6V0" firstAttribute="top" secondItem="9s6-R4-PTq" secondAttribute="bottom" constant="8" id="nmk-bV-L4N"/>
+                            <constraint firstItem="Wbu-fY-lkl" firstAttribute="top" secondItem="9s6-R4-PTq" secondAttribute="bottom" constant="8" id="e9k-51-MO0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HFY-6e-2uY" secondAttribute="trailing" constant="16" id="fmK-WU-3AS"/>
+                            <constraint firstItem="BVL-cp-moJ" firstAttribute="top" secondItem="Wbu-fY-lkl" secondAttribute="bottom" constant="16" id="i2h-aB-m36"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="51o-Ed-Ndd"/>
                     <connections>
                         <outlet property="imageView" destination="9s6-R4-PTq" id="AYy-eE-lM1"/>
-                        <outlet property="likeButton" destination="FXi-DP-6V0" id="G0l-2A-igb"/>
+                        <outlet property="likeButton" destination="HFY-6e-2uY" id="f2U-Bt-KM8"/>
+                        <outlet property="nameLabel" destination="Wbu-fY-lkl" id="jSI-o3-Enp"/>
                         <outlet property="tableView" destination="BVL-cp-moJ" id="UFb-dc-VB3"/>
                         <segue destination="maP-bo-sib" kind="show" identifier="populationSegue" id="RZX-HG-4pV"/>
                     </connections>

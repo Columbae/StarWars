@@ -107,7 +107,7 @@
 				070B5666213AC0710036F186 /* Planet */,
 				070B5667213AC30D0036F186 /* Population */,
 				07D010CD213C184F007861FD /* Resident */,
-				070B5670213AD0240036F186 /* InfoTableViewCell.swift */,
+				07D010CE213C64A4007861FD /* Cells */,
 				076BF733213AAEBB00C1BA45 /* Assets.xcassets */,
 				076BF735213AAEBB00C1BA45 /* LaunchScreen.storyboard */,
 				076BF738213AAEBB00C1BA45 /* Info.plist */,
@@ -124,6 +124,14 @@
 				070B5668213AC3190036F186 /* Resident.swift */,
 			);
 			path = Resident;
+			sourceTree = "<group>";
+		};
+		07D010CE213C64A4007861FD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				070B5670213AD0240036F186 /* InfoTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

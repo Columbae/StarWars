@@ -88,8 +88,8 @@ class Planet {
         
         self.image = UIImage(named: "Eaw_Kamino")
         
-        self.itemNames = ["Name", "Rotation period", "Orbital period", "Diameter", "Climate", "Gravity", "Terrain", "SurfaceWater", "Population", "Residents"]
-        self.items = [name, rotationPeriod, orbitalPeriod, diameter, climate, gravity, terrain, surfaceWater, population, ""]
+        self.itemNames = ["Rotation period", "Orbital period", "Diameter", "Climate", "Gravity", "Terrain", "SurfaceWater", "Population", "Residents"]
+        self.items = [rotationPeriod, orbitalPeriod, diameter, climate, gravity, terrain, surfaceWater, population, ""]
     }
     
     /// Returns the `Resident` object with the passed identifier.

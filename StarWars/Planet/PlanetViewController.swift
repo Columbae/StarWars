@@ -13,6 +13,7 @@ class PlanetViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         guard let planet = planet else { return }
@@ -60,6 +61,7 @@ class PlanetViewController: UIViewController {
             }
         }
         imageView.image = planet?.image
+        nameLabel.text = planet?.name
     }
     
     // MARK: - Navigation
