@@ -37,7 +37,9 @@ class Planet {
     /// The image of the planet.
     var image: UIImage?
     
+    /// The names of the items.
     let itemNames: [String]
+    /// The items to display in the planet info screen.
     let items: [String]
     
     /// Initializes a new planet object from a JSON object.
@@ -74,6 +76,7 @@ class Planet {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let resident = Resident(json: jsonResult) {
+                    resident.identifier = 1
                     self.residents.append(resident)
                 }
             } catch {
@@ -83,10 +86,18 @@ class Planet {
 //        self.residents = residents
         self.likes = likes
         
-        self.image = nil
+        self.image = UIImage(named: "Eaw_Kamino")
         
         self.itemNames = ["Name", "Rotation period", "Orbital period", "Diameter", "Climate", "Gravity", "Terrain", "SurfaceWater", "Population", "Residents"]
         self.items = [name, rotationPeriod, orbitalPeriod, diameter, climate, gravity, terrain, surfaceWater, population, ""]
+    }
+    
+    /// Returns the `Resident` object with the passed identifier.
+    ///
+    /// - Parameter identifier: The `Int` identifier of the resident.
+    subscript(resident identifier: Int?) -> Resident? {
+        guard let identifier = identifier else { return nil }
+        return residents.filter { $0.identifier == identifier }.first
     }
 }
 
@@ -98,17 +109,31 @@ extension Planet {
         return items.count
     }
     
-    /// Asks the data source for a cell to insert in a particular location of the table view.
+    /// Returns the cell at the given indexPath for the planet table view.
     ///
     /// - parameter tableView: A table view object requesting the cell.
     /// - parameter indexPath: An index path locating the item in the collection view.
     ///
     /// - returns: An object inheriting from `UITableViewCell` that the table view can use for the specified row.
-    func cellForItem(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
+    func cellForPlanetRow(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
         
         let isInteractable: Bool = itemNames[indexPath.row] == "Residents" ? true : false
-        cell.configure(title: itemNames[indexPath.row], explanation: items[indexPath.row], isInteractable: isInteractable)
+        cell.configure(for: indexPath.row,title: itemNames[indexPath.row], explanation: items[indexPath.row], isInteractable: isInteractable)
+        return cell
+    }
+    
+    /// Returns the cell at the given indexPath for the population table view.
+    ///
+    /// - parameter tableView: A table view object requesting the cell.
+    /// - parameter indexPath: An index path locating the item in the collection view.
+    ///
+    /// - returns: An object inheriting from `UITableViewCell` that the table view can use for the specified row.
+    func cellForPopulationRow(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
+        let resident = residents[indexPath.row]
+        let residentInfo = "\(resident.height) cm, \(resident.mass) kg, \(resident.gender)"
+        cell.configure(for: resident.identifier,title: resident.name, explanation: residentInfo, isInteractable: true)
         return cell
     }
 }

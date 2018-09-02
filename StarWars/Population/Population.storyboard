@@ -95,6 +95,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Kcz-vh-wYY" id="EVZ-9Z-Sog"/>
+                                    <outlet property="delegate" destination="Kcz-vh-wYY" id="Fz3-mM-P2a"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,17 +114,20 @@
                         <viewLayoutGuide key="safeArea" id="RHN-VZ-hNG"/>
                     </view>
                     <connections>
-                        <segue destination="ZWw-MW-IlW" kind="show" identifier="popInfoSegue" id="96M-rx-lw4"/>
+                        <outlet property="imageView" destination="01A-mo-eqQ" id="Uo5-bj-VXx"/>
+                        <outlet property="planetNameLabel" destination="adX-co-El3" id="Fsr-8f-uFo"/>
+                        <outlet property="tableView" destination="UE1-Px-Ps4" id="Ih6-qt-DVI"/>
+                        <segue destination="ZWw-MW-IlW" kind="show" identifier="residentSegue" id="96M-rx-lw4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMw-XK-Fza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1038" y="134"/>
         </scene>
-        <!--PopInfo-->
+        <!--Resident-->
         <scene sceneID="bIb-i1-6ml">
             <objects>
-                <viewControllerPlaceholder storyboardName="PopInfo" id="ZWw-MW-IlW" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Resident" id="ZWw-MW-IlW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gc3-CJ-6o0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1722" y="133"/>

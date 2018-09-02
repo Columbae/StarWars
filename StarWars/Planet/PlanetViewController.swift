@@ -41,17 +41,12 @@ class PlanetViewController: UIViewController {
         sender.view?.removeFromSuperview()
     }
     
-    /// The currently presented tool.
+    /// The currently presented planet.
     var planet: Planet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.reloadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         if let path = Bundle.main.path(forResource: "Kamino", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -64,13 +59,14 @@ class PlanetViewController: UIViewController {
                 // handle error
             }
         }
+        imageView.image = planet?.image
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "populationSegue" {
-//            guard let populationVC = segue.destination as? PopViewController else { return }
-            // TODO :: finish loading the populationVC
+            guard let populationVC = segue.destination as? PopulationViewController else { return }
+            populationVC.planet = planet
         }
     }
 }
@@ -84,7 +80,7 @@ extension PlanetViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let planet = planet else { return UITableViewCell() }
-        return planet.cellForItem(at: indexPath, in: tableView)
+        return planet.cellForPlanetRow(at: indexPath, in: tableView)
     }
 }
 
