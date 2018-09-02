@@ -14,6 +14,7 @@ class PlanetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var loadingView: UIView!
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         guard let planet = planet else { return }
@@ -52,6 +53,7 @@ class PlanetViewController: UIViewController {
             self?.planet = Planet(json: json)
             DispatchQueue.main.async() {
                 self?.tableView.reloadData()
+                self?.loadingView.isHidden = true
             }
             self?.imageView.image = self?.planet?.image
             self?.nameLabel.text = self?.planet?.name
