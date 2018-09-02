@@ -33,7 +33,7 @@ final class InfoTableViewCell: UITableViewCell {
         }
     }
     /// The identifier of the object used for cell creation.
-    var identifier: Int = -1
+    var identifier: String = "-1"
 }
 
 // MARK: - IntoTableViewCell configuration
@@ -45,7 +45,7 @@ extension InfoTableViewCell {
     ///   - title: The cell title.
     ///   - explanation: The cell explanation
     ///   - isInteractable: `true` if the cell is interactable, `false` otherwise.
-    func configure(for identifier: Int, title: String, explanation: String, isInteractable: Bool) {
+    func configure(for identifier: String, title: String, explanation: String, isInteractable: Bool) {
         self.identifier = identifier
         self.title = title
         self.explanation = explanation

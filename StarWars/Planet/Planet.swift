@@ -70,32 +70,31 @@ class Planet {
         self.terrain = terrain
         self.surfaceWater = surfaceWater
         self.population = population
-        self.residents = []
-        if let path = Bundle.main.path(forResource: "Boba Fett", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let resident = Resident(json: jsonResult) {
-                    resident.identifier = 1
-                    self.residents.append(resident)
-                }
-            } catch {
-                // handle error
-            }
-        }
-//        self.residents = residents
         self.likes = likes
         
         self.image = UIImage(named: "Eaw_Kamino")
         
         self.itemNames = ["Rotation period", "Orbital period", "Diameter", "Climate", "Gravity", "Terrain", "SurfaceWater", "Population", "Residents"]
         self.items = [rotationPeriod, orbitalPeriod, diameter, climate, gravity, terrain, surfaceWater, population, ""]
+        
+        self.residents = []
+        for residentURL in residentURLs {
+            NetOps.shared.fetchJSON(from: residentURL) { [weak self] residentJSON -> Void in
+                let splitURL = residentURL.split{$0 == "/"}.map(String.init)
+                guard let id = splitURL.last else { return }
+                var json = residentJSON
+                json["identifier"] = id
+                guard let resident = Resident(json: json) else { return }
+                resident.homeworld = self
+                self?.residents.append(resident)
+            }
+        }
     }
     
     /// Returns the `Resident` object with the passed identifier.
     ///
-    /// - Parameter identifier: The `Int` identifier of the resident.
-    subscript(resident identifier: Int?) -> Resident? {
+    /// - Parameter identifier: The `String` identifier of the resident.
+    subscript(resident identifier: String?) -> Resident? {
         guard let identifier = identifier else { return nil }
         return residents.filter { $0.identifier == identifier }.first
     }
@@ -119,7 +118,7 @@ extension Planet {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
         
         let isInteractable: Bool = itemNames[indexPath.row] == "Residents" ? true : false
-        cell.configure(for: indexPath.row,title: itemNames[indexPath.row], explanation: items[indexPath.row], isInteractable: isInteractable)
+        cell.configure(for: "\(indexPath.row)",title: itemNames[indexPath.row], explanation: items[indexPath.row], isInteractable: isInteractable)
         return cell
     }
     

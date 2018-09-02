@@ -11,7 +11,7 @@ import UIKit
 class Resident {
     
     /// The identifier of the resident.
-    var identifier: Int
+    var identifier: String
     /// The name of the resident.
     let name: String
     /// The height of the resident.
@@ -30,7 +30,7 @@ class Resident {
     let gender: String
     
     /// The home world of the resident.
-    let homeworld: Planet?
+    var homeworld: Planet?
     /// The image of the resident.
     var image: UIImage?
     
@@ -50,9 +50,11 @@ class Resident {
         let skinColor = json["skin_color"] as? String,
         let eyeColor = json["eye_color"] as? String,
         let birthYear = json["birth_year"] as? String,
-        let gender = json["gender"] as? String else { return nil }
+        let gender = json["gender"] as? String,
+        let imageURL = json["image_url"] as? String,
+        let identifier = json["identifier"] as? String else { return nil }
         
-        self.identifier = json["identifier"] as? Int ?? -1
+        self.identifier = identifier
         self.name = name
         self.height = height
         self.mass = mass
@@ -67,6 +69,12 @@ class Resident {
         
         self.itemNames = ["Height", "Mass", "Hair Color", "Skin Color", "Eye Color", "Birth Year", "Gender"]
         self.items = [height, mass, hairColor, skinColor, eyeColor, birthYear, gender]
+        
+        NetOps.shared.fetchImage(from: imageURL) {  [weak self] imageData -> Void in
+            DispatchQueue.main.async() {
+                self?.image = UIImage(data: imageData)
+            }
+        }
     }
 }
 
