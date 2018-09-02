@@ -48,20 +48,14 @@ class PlanetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let path = Bundle.main.path(forResource: "Kamino", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let jsonResult = jsonResult as? Dictionary<String, AnyObject> {
-                    planet = Planet(json: jsonResult)
-                    tableView.reloadData()
-                }
-            } catch {
-                // handle error
+        NetOps.shared.fetchJSON(from: NetOps.Routes.Kamino) { [weak self] json -> Void in
+            self?.planet = Planet(json: json)
+            DispatchQueue.main.async() {
+                self?.tableView.reloadData()
             }
+            self?.imageView.image = self?.planet?.image
+            self?.nameLabel.text = self?.planet?.name
         }
-        imageView.image = planet?.image
-        nameLabel.text = planet?.name
     }
     
     // MARK: - Navigation

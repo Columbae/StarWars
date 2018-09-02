@@ -31,7 +31,6 @@ class Planet {
     /// The residents of the planet.
     var residents: [Resident]
     /// The likes of the planet.
-    // TODO :: add saving likes to storage
     var likes: Int
     
     /// The image of the planet.
@@ -55,11 +54,8 @@ class Planet {
             let terrain = json["terrain"] as? String,
             let surfaceWater = json["surface_water"] as? String,
             let population = json["population"] as? String,
-            // TODO :: handle the downloading of residents
             let residentURLs = json["residents"] as? [String],
-            let likes = json["likes"] as? Int,
-            // TODO :: handle the downloading of the image from the given url.
-            let imageURL = json["image_url"] else { return nil }
+            let likes = json["likes"] as? Int else { return nil }
         
         self.name = name
         self.rotationPeriod = rotationPeriod

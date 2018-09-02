@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		070B565C213ABA730036F186 /* Population.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070B565B213ABA730036F186 /* Population.storyboard */; };
 		070B565E213ABAFE0036F186 /* Resident.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070B565D213ABAFE0036F186 /* Resident.storyboard */; };
-		070B5661213ABDB00036F186 /* Kamino.json in Resources */ = {isa = PBXBuildFile; fileRef = 070B565F213ABDB00036F186 /* Kamino.json */; };
-		070B5662213ABDB00036F186 /* Boba Fett.json in Resources */ = {isa = PBXBuildFile; fileRef = 070B5660213ABDB00036F186 /* Boba Fett.json */; };
 		070B5665213AC06A0036F186 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070B5664213AC06A0036F186 /* Planet.swift */; };
 		070B5669213AC3190036F186 /* Resident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070B5668213AC3190036F186 /* Resident.swift */; };
 		070B5671213AD0240036F186 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070B5670213AD0240036F186 /* InfoTableViewCell.swift */; };
@@ -30,8 +28,6 @@
 /* Begin PBXFileReference section */
 		070B565B213ABA730036F186 /* Population.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Population.storyboard; sourceTree = "<group>"; };
 		070B565D213ABAFE0036F186 /* Resident.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resident.storyboard; sourceTree = "<group>"; };
-		070B565F213ABDB00036F186 /* Kamino.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Kamino.json; sourceTree = "<group>"; };
-		070B5660213ABDB00036F186 /* Boba Fett.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Boba Fett.json"; sourceTree = "<group>"; };
 		070B5664213AC06A0036F186 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		070B5668213AC3190036F186 /* Resident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resident.swift; sourceTree = "<group>"; };
 		070B5670213AD0240036F186 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,15 +60,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		070B5663213ABDC80036F186 /* JSONs */ = {
-			isa = PBXGroup;
-			children = (
-				070B5660213ABDB00036F186 /* Boba Fett.json */,
-				070B565F213ABDB00036F186 /* Kamino.json */,
-			);
-			path = JSONs;
-			sourceTree = "<group>";
-		};
 		070B5666213AC0710036F186 /* Planet */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +103,6 @@
 			children = (
 				076BF729213AAEB600C1BA45 /* AppDelegate.swift */,
 				07AB6D36213C9B4E0060D23C /* NetOps.swift */,
-				070B5663213ABDC80036F186 /* JSONs */,
 				070B5666213AC0710036F186 /* Planet */,
 				070B5667213AC30D0036F186 /* Population */,
 				07D010CD213C184F007861FD /* Resident */,
@@ -227,10 +213,8 @@
 				076BF737213AAEBB00C1BA45 /* LaunchScreen.storyboard in Resources */,
 				070B565C213ABA730036F186 /* Population.storyboard in Resources */,
 				07AB6D3D213C9D100060D23C /* Podfile in Resources */,
-				070B5662213ABDB00036F186 /* Boba Fett.json in Resources */,
 				070B565E213ABAFE0036F186 /* Resident.storyboard in Resources */,
 				076BF734213AAEBB00C1BA45 /* Assets.xcassets in Resources */,
-				070B5661213ABDB00036F186 /* Kamino.json in Resources */,
 				076BF72F213AAEB600C1BA45 /* Planet.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

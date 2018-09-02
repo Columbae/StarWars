@@ -16,8 +16,10 @@ class NetOps {
     struct Routes {
         private static var RootURL: String { return "http://private-84e428-starwars2.apiary-mock.com" }
         
-        static var Planets: String { return RootURL + "/Planets" }
-        static var Residents: String { return RootURL + "/Residents" }
+        static var Planets: String { return RootURL + "/planets" }
+        static var Residents: String { return RootURL + "/residents" }
+        
+        static var Kamino: String { return Planets + "/10" }
     }
 }
 
