@@ -29,7 +29,7 @@ class Planet {
     /// The population of the planet.
     let population: String
     /// The residents of the planet.
-    var residents: [Pop]
+    var residents: [Resident]
     /// The likes of the planet.
     // TODO :: add saving likes to storage
     var likes: Int
@@ -40,7 +40,7 @@ class Planet {
     let itemNames: [String]
     let items: [String]
     
-    /// Initializes a new result question object from a JSON object.
+    /// Initializes a new planet object from a JSON object.
     ///
     /// parameter json: The JSON object from which to initialize.
     init?(json: [String: Any]) {
@@ -73,8 +73,8 @@ class Planet {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let pop = Pop(json: jsonResult) {
-                    self.residents.append(pop)
+                if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let resident = Resident(json: jsonResult) {
+                    self.residents.append(resident)
                 }
             } catch {
                 // handle error
@@ -91,6 +91,9 @@ class Planet {
 }
 
 extension Planet {
+    /// Returns the number of planets items to display.
+    ///
+    /// - Returns: `Int` representing the number of items to display.
     func numberOfItems() -> Int {
         return items.count
     }
@@ -103,7 +106,9 @@ extension Planet {
     /// - returns: An object inheriting from `UITableViewCell` that the table view can use for the specified row.
     func cellForItem(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
-        cell.configure(title: itemNames[indexPath.row], explanation: items[indexPath.row], isInteractable: true)
+        
+        let isInteractable: Bool = itemNames[indexPath.row] == "Residents" ? true : false
+        cell.configure(title: itemNames[indexPath.row], explanation: items[indexPath.row], isInteractable: isInteractable)
         return cell
     }
 }

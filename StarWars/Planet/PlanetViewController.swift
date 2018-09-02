@@ -75,7 +75,7 @@ class PlanetViewController: UIViewController {
     }
 }
 
-// MARK: - Collection view data source
+// MARK: - Table view data source
 extension PlanetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let planet = planet else { return 0 }
@@ -88,7 +88,7 @@ extension PlanetViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Collection view delegate
+// MARK: - Table view delegate
 extension PlanetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

@@ -1,5 +1,5 @@
 //
-//  Pop.swift
+//  Resident.swift
 //  StarWars
 //
 //  Created by Tomaz Golob on 01/09/2018.
@@ -8,21 +8,31 @@
 
 import UIKit
 
-class Pop {
+class Resident {
     
+    /// The name of the resident.
     let name: String
+    /// The height of the resident.
     let height: String
+    /// The mass of the resident.
     let mass: String
+    /// The hair color of the resident.
     let hairColor: String
+    /// The skin color of the resident.
     let skinColor: String
+    /// The eye color of the resident.
     let eyeColor: String
+    /// The birth year of the resident.
     let birthYear: String
+    /// The gender of the resident.
     let gender: String
     
+    /// The home world of the resident.
     let homeworld: Planet?
+    /// The image of the resident.
     var image: UIImage?
     
-    /// Initializes a new result question object from a JSON object.
+    /// Initializes a new resident object from a JSON object.
     ///
     /// parameter json: The JSON object from which to initialize.
     init?(json: [String: Any]) {
